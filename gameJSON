@@ -1,0 +1,10 @@
+{
+    "title": "string",
+    "id": "string",
+    "rating": "string",
+    "descrip": "string",
+    "released": "string",
+    "console": [
+        "string"
+    ]
+}

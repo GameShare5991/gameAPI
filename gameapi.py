@@ -1,7 +1,7 @@
 #GameShare game API
 #Andrew James
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
@@ -28,10 +28,8 @@ def allgames():
 @app.route('/games/<gameid>', methods=['GET'])
 def gamenames(gameid):
     games = db.collection('games').where("id", "==", gameid).get()
-    gamelist = []
-    for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist) 
+    game = str(games[0].to_dict())
+    return jsonify(game)
 
 #display all xbox games
 @app.route('/games/xbox', methods=['GET'])
@@ -79,13 +77,11 @@ def switchgames():
     return jsonify(gamelist)  
 
 #displays image location in firebase storage for use in frontend
-@app.route('/games/<gameid>/image', methods=['GET'])
+@app.route('/games/image/<gameid>', methods=['GET'])
 def gameimage(gameid):
     games = db.collection('games').where("id", "==", gameid).get()
-    gamelist = []
-    for game in games:
-        gamelist.append(str(game.to_dict()))
-    dict = ast.literal_eval(gamelist[0])
+    game = str(games[0].to_dict())
+    dict = ast.literal_eval(game)
     return  jsonify(dict['img'])
 
 #delete game using it's id
@@ -96,18 +92,81 @@ def deletegame(gameid):
     db.collection('games').document(docid).delete()
     return ('deleted game with gameID: '+ gameid)
 
-#update game place holder by gameid
-#@app.route('/games/update/<gameid>', methods=['GET', 'POST'])
-#def updategame(gameid):
-    #games = db.collection('games').where("id", "==", gameid).get()
-    #docid = games[0].id
-    #db.collection('games').document(docid).update()
-    #return ('updated game with gameID: '+ gameid)
-
-#create game place holder 
-#@app.route('/games/create', methods=['POST'])
-#def creategame():
+#create new game
+@app.route('/games/create', methods=['POST'])
+def updategame():
+    request_data = request.get_json()
     
+    title = "None"
+    rating = "None"
+    descrip = "None"
+    released = "None"
+    id = "None"
+    console = []
+
+    if 'console' in request_data:
+        for item in request_data['console']:
+            console.append(item)
+
+    if 'title' in request_data:
+        title = request_data['title']
+
+    if 'rating' in request_data:
+        rating = request_data['rating']
+
+    if 'descrip' in request_data:
+        descrip = request_data['descrip']
+
+    if 'released' in request_data:
+        released = request_data['released']
+
+    if 'id' in request_data:
+        id = request_data['id']
+
+    data = {'title' : title, 'rating' : rating, 'descrip' : descrip, 'id' : id, 'released' : released, 'console' : console}
+    db.collection('games').add(data)
+    return 'added to database'
+
+#update game by id
+@app.route('/games/update/<gameid>', methods=['POST'])
+def update(gameid):
+    request_data = request.get_json()
+    games = db.collection('games').where("id", "==", gameid).get()
+    docid = games[0].id
+    title = None
+    rating = None
+    descrip = None
+    released = None
+    id = None
+    console = []
+
+    if 'console' in request_data:
+        for item in request_data['console']:
+            console.append(item)
+        db.collection('games').document(docid).update({'console' : console})
+
+    if 'title' in request_data:
+        title = request_data['title']
+        db.collection('games').document(docid).update({'title' : title})
+
+    if 'rating' in request_data:
+        rating = request_data['rating']
+        db.collection('games').document(docid).update({'rating' : rating})
+
+    if 'descrip' in request_data:
+        descrip = request_data['descrip']
+        db.collection('games').document(docid).update({'descrip' : descrip})
+
+    if 'released' in request_data:
+        released = request_data['released']
+        db.collection('games').document(docid).update({'released' : released})
+
+    if 'id' in request_data:
+        id = request_data['id']
+        db.collection('games').document(docid).update({'id' : id})
+
+    return ('updated game with gameID')
+
 
 
 if __name__ == '__main__':

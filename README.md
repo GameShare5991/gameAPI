@@ -1,3 +1,4 @@
 Code for the GameAPI
 
-Currently has placeholder for update and create CRUD operations
+gameJSON file is a template to be used when making Create and Update operations. 
+
