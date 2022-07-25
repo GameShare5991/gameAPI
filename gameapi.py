@@ -133,11 +133,11 @@ def update(gameid):
     request_data = request.get_json()
     games = db.collection('games').where("id", "==", gameid).get()
     docid = games[0].id
-    title = None
-    rating = None
-    descrip = None
-    released = None
-    id = None
+    title = "None"
+    rating = "None"
+    descrip = "None"
+    released = "None"
+    id = "None"
     console = []
 
     if 'console' in request_data:
