@@ -4,12 +4,15 @@
 from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials
-from firebase_admin import firestore
+from firebase_admin import firestore, storage
+import numpy as np
+import cv2
 import ast
+import base64
 
 # Use the application default credentials
 cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred, {'storageBucket' : 'gameshare-722ef.appspot.com'})
 
 db = firestore.client()
 
@@ -76,13 +79,14 @@ def switchgames():
         gamelist.append(str(game.to_dict()))
     return jsonify(gamelist)  
 
-#displays image location in firebase storage for use in frontend
+#displays image
 @app.route('/games/image/<gameid>', methods=['GET'])
 def gameimage(gameid):
     games = db.collection('games').where("id", "==", gameid).get()
-    game = str(games[0].to_dict())
-    dict = ast.literal_eval(game)
-    return  jsonify(dict['img'])
+    game = games[0].to_dict()
+    imgid = game['img']
+    return f"<img src = \"{imgid}\">"
+ 
 
 #delete game using it's id
 @app.route('/games/delete/<gameid>', methods=['GET', 'DELETE'])
