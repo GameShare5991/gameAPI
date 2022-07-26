@@ -1,0 +1,280 @@
+* 
+* ==> Audit <==
+* |---------|---------------|----------|---------------------|---------|---------------------|---------------------|
+| Command |     Args      | Profile  |        User         | Version |     Start Time      |      End Time       |
+|---------|---------------|----------|---------------------|---------|---------------------|---------------------|
+| start   |               | minikube | WEIZHOU-PC\Wei Zhou | v1.26.0 | 23 Jul 22 13:54 EDT | 23 Jul 22 13:56 EDT |
+| service | flask-service | minikube | WEIZHOU-PC\Wei Zhou | v1.26.0 | 25 Jul 22 21:02 EDT |                     |
+| service | game-service  | minikube | WEIZHOU-PC\Wei Zhou | v1.26.0 | 25 Jul 22 21:05 EDT |                     |
+| start   |               | minikube | WEIZHOU-PC\Wei Zhou | v1.26.0 | 25 Jul 22 21:05 EDT |                     |
+|---------|---------------|----------|---------------------|---------|---------------------|---------------------|
+
+* 
+* ==> Last Start <==
+* Log file created at: 2022/07/25 21:05:43
+Running on machine: WeiZhou-PC
+Binary: Built with gc go1.18.3 for windows/amd64
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0725 21:05:43.425779   24692 out.go:296] Setting OutFile to fd 1296 ...
+I0725 21:05:43.425779   24692 out.go:343] TERM=xterm,COLORTERM=, which probably does not support color
+I0725 21:05:43.425779   24692 out.go:309] Setting ErrFile to fd 1296...
+I0725 21:05:43.425779   24692 out.go:343] TERM=xterm,COLORTERM=, which probably does not support color
+W0725 21:05:43.441811   24692 root.go:307] Error reading config file at C:\Users\Wei Zhou\.minikube\config\config.json: open C:\Users\Wei Zhou\.minikube\config\config.json: The system cannot find the file specified.
+I0725 21:05:43.442809   24692 out.go:303] Setting JSON to false
+I0725 21:05:43.452049   24692 start.go:115] hostinfo: {"hostname":"WeiZhou-PC","uptime":9224,"bootTime":1658788319,"procs":332,"os":"windows","platform":"Microsoft Windows 10 Pro","platformFamily":"Standalone Workstation","platformVersion":"10.0.19044 Build 19044","kernelVersion":"10.0.19044 Build 19044","kernelArch":"x86_64","virtualizationSystem":"","virtualizationRole":"","hostId":"3f9d0796-e2ce-4913-8aab-eb79511a7d8f"}
+W0725 21:05:43.452126   24692 start.go:123] gopshost.Virtualization returned error: not implemented yet
+I0725 21:05:43.456761   24692 out.go:177] * minikube v1.26.0 on Microsoft Windows 10 Pro 10.0.19044 Build 19044
+I0725 21:05:43.467039   24692 notify.go:193] Checking for updates...
+I0725 21:05:43.467605   24692 config.go:178] Loaded profile config "minikube": Driver=hyperv, ContainerRuntime=docker, KubernetesVersion=v1.24.1
+I0725 21:05:43.468130   24692 driver.go:360] Setting default libvirt URI to qemu:///system
+I0725 21:05:44.411917   24692 out.go:177] * Using the hyperv driver based on existing profile
+I0725 21:05:44.415027   24692 start.go:284] selected driver: hyperv
+I0725 21:05:44.415027   24692 start.go:805] validating driver "hyperv" against &{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.26.0-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.32@sha256:9190bd2393eae887316c97a74370b7d5dad8f0b2ef91ac2662bc36f7ef8e0b95 Memory:4000 CPUs:2 DiskSize:20000 VMDriver: Driver:hyperv HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:0 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.24.1 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin: FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP:172.23.5.86 Port:8443 KubernetesVersion:v1.24.1 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\Wei Zhou:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath:}
+I0725 21:05:44.415872   24692 start.go:816] status for hyperv: {Installed:true Healthy:true Running:false NeedsImprovement:false Error:<nil> Reason: Fix: Doc: Version:}
+I0725 21:05:45.378837   24692 cni.go:95] Creating CNI manager for ""
+I0725 21:05:45.378837   24692 cni.go:169] CNI unnecessary in this configuration, recommending no CNI
+I0725 21:05:45.378837   24692 start_flags.go:310] config:
+{Name:minikube KeepContext:false EmbedCerts:false MinikubeISO:https://storage.googleapis.com/minikube/iso/minikube-v1.26.0-amd64.iso KicBaseImage:gcr.io/k8s-minikube/kicbase:v0.0.32@sha256:9190bd2393eae887316c97a74370b7d5dad8f0b2ef91ac2662bc36f7ef8e0b95 Memory:4000 CPUs:2 DiskSize:20000 VMDriver: Driver:hyperv HyperkitVpnKitSock: HyperkitVSockPorts:[] DockerEnv:[] ContainerVolumeMounts:[] InsecureRegistry:[] RegistryMirror:[] HostOnlyCIDR:192.168.59.1/24 HypervVirtualSwitch: HypervUseExternalSwitch:false HypervExternalAdapter: KVMNetwork:default KVMQemuURI:qemu:///system KVMGPU:false KVMHidden:false KVMNUMACount:1 APIServerPort:0 DockerOpt:[] DisableDriverMounts:false NFSShare:[] NFSSharesRoot:/nfsshares UUID: NoVTXCheck:false DNSProxy:false HostDNSResolver:true HostOnlyNicType:virtio NatNicType:virtio SSHIPAddress: SSHUser:root SSHKey: SSHPort:22 KubernetesConfig:{KubernetesVersion:v1.24.1 ClusterName:minikube Namespace:default APIServerName:minikubeCA APIServerNames:[] APIServerIPs:[] DNSDomain:cluster.local ContainerRuntime:docker CRISocket: NetworkPlugin: FeatureGates: ServiceCIDR:10.96.0.0/12 ImageRepository: LoadBalancerStartIP: LoadBalancerEndIP: CustomIngressCert: RegistryAliases: ExtraOptions:[] ShouldLoadCachedImages:true EnableDefaultCNI:false CNI: NodeIP: NodePort:8443 NodeName:} Nodes:[{Name: IP:172.23.5.86 Port:8443 KubernetesVersion:v1.24.1 ContainerRuntime:docker ControlPlane:true Worker:true}] Addons:map[default-storageclass:true storage-provisioner:true] CustomAddonImages:map[] CustomAddonRegistries:map[] VerifyComponents:map[apiserver:true system_pods:true] StartHostTimeout:6m0s ScheduledStop:<nil> ExposedPorts:[] ListenAddress: Network: Subnet: MultiNodeRequested:false ExtraDisks:0 CertExpiration:26280h0m0s Mount:false MountString:C:\Users\Wei Zhou:/minikube-host Mount9PVersion:9p2000.L MountGID:docker MountIP: MountMSize:262144 MountOptions:[] MountPort:0 MountType:9p MountUID:docker BinaryMirror: DisableOptimizations:false DisableMetrics:false CustomQemuFirmwarePath:}
+I0725 21:05:45.379425   24692 iso.go:128] acquiring lock: {Name:mka1cc84019e0040fd9040bf1d55d24b5c49df93 Clock:{} Delay:500ms Timeout:10m0s Cancel:<nil>}
+I0725 21:05:45.384546   24692 out.go:177] * Starting control plane node minikube in cluster minikube
+I0725 21:05:45.388147   24692 preload.go:132] Checking if preload exists for k8s version v1.24.1 and runtime docker
+I0725 21:05:45.388712   24692 preload.go:148] Found local preload: C:\Users\Wei Zhou\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.24.1-docker-overlay2-amd64.tar.lz4
+I0725 21:05:45.388712   24692 cache.go:57] Caching tarball of preloaded images
+I0725 21:05:45.388712   24692 preload.go:174] Found C:\Users\Wei Zhou\.minikube\cache\preloaded-tarball\preloaded-images-k8s-v18-v1.24.1-docker-overlay2-amd64.tar.lz4 in cache, skipping download
+I0725 21:05:45.388712   24692 cache.go:60] Finished verifying existence of preloaded tar for  v1.24.1 on docker
+I0725 21:05:45.389264   24692 profile.go:148] Saving config to C:\Users\Wei Zhou\.minikube\profiles\minikube\config.json ...
+I0725 21:05:45.392094   24692 cache.go:208] Successfully downloaded all kic artifacts
+I0725 21:05:45.392094   24692 start.go:352] acquiring machines lock for minikube: {Name:mk5b2cc6ad701f517c57dfbb0635a7ae1d47d341 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0725 21:05:45.392599   24692 start.go:356] acquired machines lock for "minikube" in 504.9µs
+I0725 21:05:45.392642   24692 start.go:94] Skipping create...Using existing machine configuration
+I0725 21:05:45.392642   24692 fix.go:55] fixHost starting: 
+I0725 21:05:45.392642   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:05:46.100283   24692 main.go:134] libmachine: [stdout =====>] : Saved
+
+I0725 21:05:46.100283   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:05:46.100283   24692 fix.go:103] recreateIfNeeded on minikube: state= err=<nil>
+I0725 21:05:46.100283   24692 fix.go:108] machineExists: false. err=machine does not exist
+I0725 21:05:46.105634   24692 out.go:177] * hyperv "minikube" VM is missing, will recreate.
+I0725 21:05:46.109474   24692 delete.go:124] DEMOLISHING minikube ...
+I0725 21:05:46.109474   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:05:46.811677   24692 main.go:134] libmachine: [stdout =====>] : Saved
+
+I0725 21:05:46.811677   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:05:46.811677   24692 stop.go:79] host is in state 
+I0725 21:05:46.811677   24692 main.go:134] libmachine: Stopping "minikube"...
+I0725 21:05:46.811677   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:05:47.463169   24692 main.go:134] libmachine: [stdout =====>] : Saved
+
+I0725 21:05:47.463169   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:05:47.463169   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Stop-VM minikube
+I0725 21:05:48.421893   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:05:48.421893   24692 main.go:134] libmachine: [stderr =====>] : Hyper-V\Stop-VM : Windows PowerShell is in NonInteractive mode. Read and 
+Prompt functionality is not available.
+At line:1 char:1
++ Hyper-V\Stop-VM minikube
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Stop-VM], VirtualizationE 
+   xception
+    + FullyQualifiedErrorId : InvalidOperation,Microsoft.HyperV.PowerShell.Com 
+   mands.StopVM
+ 
+
+I0725 21:05:48.421893   24692 stop.go:59] stop err: exit status 1
+I0725 21:05:48.421893   24692 delete.go:129] stophost failed (probably ok): Temporary Error: stop: exit status 1
+I0725 21:05:48.422609   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:05:49.086841   24692 main.go:134] libmachine: [stdout =====>] : Saved
+
+I0725 21:05:49.086841   24692 main.go:134] libmachine: [stderr =====>] : 
+W0725 21:05:49.086841   24692 delete.go:135] deletehost failed: Docker machine "minikube" does not exist. Use "docker-machine ls" to list machines. Use "docker-machine create" to add a new one.
+I0725 21:05:49.086841   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:05:49.733787   24692 main.go:134] libmachine: [stdout =====>] : Saved
+
+I0725 21:05:49.733787   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:05:49.733787   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Remove-VM minikube -Force
+I0725 21:06:00.221520   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:00.221520   24692 main.go:134] libmachine: [stderr =====>] : 
+W0725 21:06:00.227649   24692 delete.go:139] delete failed (probably ok) <nil>
+I0725 21:06:00.227649   24692 fix.go:115] Sleeping 1 second for extra luck!
+I0725 21:06:01.238855   24692 start.go:131] createHost starting for "" (driver="hyperv")
+I0725 21:06:01.242950   24692 out.go:204] * Creating hyperv VM (CPUs=2, Memory=4000MB, Disk=20000MB) ...
+I0725 21:06:01.243525   24692 start.go:165] libmachine.API.Create for "minikube" (driver="hyperv")
+I0725 21:06:01.243525   24692 client.go:168] LocalClient.Create starting
+I0725 21:06:01.244549   24692 main.go:134] libmachine: Reading certificate data from C:\Users\Wei Zhou\.minikube\certs\ca.pem
+I0725 21:06:01.244601   24692 main.go:134] libmachine: Decoding PEM data...
+I0725 21:06:01.244601   24692 main.go:134] libmachine: Parsing certificate...
+I0725 21:06:01.245104   24692 main.go:134] libmachine: Reading certificate data from C:\Users\Wei Zhou\.minikube\certs\cert.pem
+I0725 21:06:01.245153   24692 main.go:134] libmachine: Decoding PEM data...
+I0725 21:06:01.245153   24692 main.go:134] libmachine: Parsing certificate...
+I0725 21:06:01.245153   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive @(Get-Module -ListAvailable hyper-v).Name | Get-Unique
+I0725 21:06:01.583989   24692 main.go:134] libmachine: [stdout =====>] : Hyper-V
+
+I0725 21:06:01.583989   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:01.583989   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive @([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(([System.Security.Principal.SecurityIdentifier]::new("S-1-5-32-578")))
+I0725 21:06:01.830612   24692 main.go:134] libmachine: [stdout =====>] : False
+
+I0725 21:06:01.830612   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:01.830612   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive @([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+I0725 21:06:02.080739   24692 main.go:134] libmachine: [stdout =====>] : True
+
+I0725 21:06:02.080739   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:02.080739   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive [Console]::OutputEncoding = [Text.Encoding]::UTF8; ConvertTo-Json @(Hyper-V\Get-VMSwitch|Select Id, Name, SwitchType|Where-Object {($_.SwitchType -eq 'External') -or ($_.Id -eq 'c08cb7b8-9b3c-408e-8e30-5e16a3aeb444')}|Sort-Object -Property SwitchType)
+I0725 21:06:03.360269   24692 main.go:134] libmachine: [stdout =====>] : [
+    {
+        "Id":  "c08cb7b8-9b3c-408e-8e30-5e16a3aeb444",
+        "Name":  "Default Switch",
+        "SwitchType":  1
+    }
+]
+
+I0725 21:06:03.360269   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:03.361871   24692 main.go:134] libmachine: Downloading C:\Users\Wei Zhou\.minikube\cache\boot2docker.iso from file://C:/Users/Wei Zhou/.minikube/cache/iso/amd64/minikube-v1.26.0-amd64.iso...
+I0725 21:06:04.918158   24692 main.go:134] libmachine: Creating SSH key...
+I0725 21:06:05.108964   24692 main.go:134] libmachine: Creating VM...
+I0725 21:06:05.108964   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive [Console]::OutputEncoding = [Text.Encoding]::UTF8; ConvertTo-Json @(Hyper-V\Get-VMSwitch|Select Id, Name, SwitchType|Where-Object {($_.SwitchType -eq 'External') -or ($_.Id -eq 'c08cb7b8-9b3c-408e-8e30-5e16a3aeb444')}|Sort-Object -Property SwitchType)
+I0725 21:06:06.252732   24692 main.go:134] libmachine: [stdout =====>] : [
+    {
+        "Id":  "c08cb7b8-9b3c-408e-8e30-5e16a3aeb444",
+        "Name":  "Default Switch",
+        "SwitchType":  1
+    }
+]
+
+I0725 21:06:06.252732   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:06.252732   24692 main.go:134] libmachine: Using switch "Default Switch"
+I0725 21:06:06.252732   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive @([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+I0725 21:06:06.501196   24692 main.go:134] libmachine: [stdout =====>] : True
+
+I0725 21:06:06.501196   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:06.501196   24692 main.go:134] libmachine: Creating VHD
+I0725 21:06:06.501196   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\New-VHD -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube\fixed.vhd' -SizeBytes 10MB -Fixed
+I0725 21:06:08.285618   24692 main.go:134] libmachine: [stdout =====>] : 
+
+ComputerName            : WEIZHOU-PC
+Path                    : C:\Users\Wei 
+                          Zhou\.minikube\machines\minikube\fixed.vhd
+VhdFormat               : VHD
+VhdType                 : Fixed
+FileSize                : 10486272
+Size                    : 10485760
+MinimumSize             : 
+LogicalSectorSize       : 512
+PhysicalSectorSize      : 512
+BlockSize               : 0
+ParentPath              : 
+DiskIdentifier          : E10CC613-9E84-4DB4-9703-13BF02BEBF17
+FragmentationPercentage : 0
+Alignment               : 1
+Attached                : False
+DiskNumber              : 
+IsPMEMCompatible        : False
+AddressAbstractionType  : None
+Number                  : 
+
+
+
+
+I0725 21:06:08.285618   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:08.285618   24692 main.go:134] libmachine: Writing magic tar header
+I0725 21:06:08.285618   24692 main.go:134] libmachine: Writing SSH key tar header
+I0725 21:06:08.286207   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Convert-VHD -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube\fixed.vhd' -DestinationPath 'C:\Users\Wei Zhou\.minikube\machines\minikube\disk.vhd' -VHDType Dynamic -DeleteSource
+I0725 21:06:10.079714   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:10.079714   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:10.079714   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Resize-VHD -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube\disk.vhd' -SizeBytes 20000MB
+I0725 21:06:11.235872   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:11.235872   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:11.235872   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\New-VM minikube -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube' -SwitchName 'Default Switch' -MemoryStartupBytes 4000MB
+I0725 21:06:13.322131   24692 main.go:134] libmachine: [stdout =====>] : 
+Name     State CPUUsage(%!)(MISSING) MemoryAssigned(M) Uptime   Status             Versio
+                                                                         n     
+----     ----- ----------- ----------------- ------   ------             ------
+minikube Off   0           0                 00:00:00 Operating normally 9.0   
+
+
+
+I0725 21:06:13.322131   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:13.322131   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Set-VMMemory -VMName minikube -DynamicMemoryEnabled $false
+I0725 21:06:14.203369   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:14.203369   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:14.203369   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Set-VMProcessor minikube -Count 2
+I0725 21:06:15.040510   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:15.040510   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:15.040510   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Set-VMDvdDrive -VMName minikube -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube\boot2docker.iso'
+I0725 21:06:16.215347   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:16.215347   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:16.215347   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Add-VMHardDiskDrive -VMName minikube -Path 'C:\Users\Wei Zhou\.minikube\machines\minikube\disk.vhd'
+I0725 21:06:17.514557   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:17.514557   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:17.514557   24692 main.go:134] libmachine: Starting VM...
+I0725 21:06:17.514557   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Start-VM minikube
+I0725 21:06:44.853383   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:44.853383   24692 main.go:134] libmachine: [stderr =====>] : Hyper-V\Start-VM : 'minikube' failed to start.
+Unable to allocate 4000 MB of RAM: Insufficient system resources exist to 
+complete the requested service. (0x800705AA).
+'minikube' failed to start. (Virtual machine ID 
+3FCFD798-86E5-4C37-807B-24EA73263491)
+'minikube' is unable to allocate 4000 MB of RAM: Insufficient system resources 
+exist to complete the requested service. (0x800705AA). (Virtual machine ID 
+3FCFD798-86E5-4C37-807B-24EA73263491)
+At line:1 char:1
++ Hyper-V\Start-VM minikube
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Start-VM], VirtualizationExce 
+   ption
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands 
+   .StartVM
+ 
+
+I0725 21:06:44.853383   24692 client.go:171] LocalClient.Create took 43.6098579s
+I0725 21:06:46.865488   24692 start.go:134] duration metric: createHost completed in 45.6266337s
+I0725 21:06:46.865488   24692 fix.go:57] fixHost completed within 1m1.4728462s
+I0725 21:06:46.865488   24692 start.go:81] releasing machines lock for "minikube", held for 1m1.4728896s
+W0725 21:06:46.865488   24692 start.go:599] error starting host: recreate: creating host: create: creating: exit status 1
+W0725 21:06:46.867273   24692 out.go:239] ! StartHost failed, but will try again: recreate: creating host: create: creating: exit status 1
+I0725 21:06:46.867273   24692 start.go:614] Will try again in 5 seconds ...
+I0725 21:06:51.875796   24692 start.go:352] acquiring machines lock for minikube: {Name:mk5b2cc6ad701f517c57dfbb0635a7ae1d47d341 Clock:{} Delay:500ms Timeout:13m0s Cancel:<nil>}
+I0725 21:06:51.875796   24692 start.go:356] acquired machines lock for "minikube" in 0s
+I0725 21:06:51.876358   24692 start.go:94] Skipping create...Using existing machine configuration
+I0725 21:06:51.876358   24692 fix.go:55] fixHost starting: 
+I0725 21:06:51.876358   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive ( Hyper-V\Get-VM minikube ).state
+I0725 21:06:52.626341   24692 main.go:134] libmachine: [stdout =====>] : Off
+
+I0725 21:06:52.626341   24692 main.go:134] libmachine: [stderr =====>] : 
+I0725 21:06:52.626341   24692 fix.go:103] recreateIfNeeded on minikube: state=Stopped err=<nil>
+W0725 21:06:52.626341   24692 fix.go:129] unexpected machine state, will restart: <nil>
+I0725 21:06:52.632144   24692 out.go:177] * Restarting existing hyperv VM for "minikube" ...
+I0725 21:06:52.635913   24692 main.go:134] libmachine: [executing ==>] : C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NonInteractive Hyper-V\Start-VM minikube
+I0725 21:06:53.952576   24692 main.go:134] libmachine: [stdout =====>] : 
+I0725 21:06:53.952576   24692 main.go:134] libmachine: [stderr =====>] : Hyper-V\Start-VM : 'minikube' failed to start.
+Unable to allocate 4000 MB of RAM: Insufficient system resources exist to 
+complete the requested service. (0x800705AA).
+'minikube' failed to start. (Virtual machine ID 
+3FCFD798-86E5-4C37-807B-24EA73263491)
+'minikube' is unable to allocate 4000 MB of RAM: Insufficient system resources 
+exist to complete the requested service. (0x800705AA). (Virtual machine ID 
+3FCFD798-86E5-4C37-807B-24EA73263491)
+At line:1 char:1
++ Hyper-V\Start-VM minikube
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Start-VM], VirtualizationExce 
+   ption
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands 
+   .StartVM
+ 
+
+I0725 21:06:53.953572   24692 fix.go:57] fixHost completed within 2.0772146s
+I0725 21:06:53.953572   24692 start.go:81] releasing machines lock for "minikube", held for 2.0777765s
+W0725 21:06:53.953572   24692 out.go:239] * Failed to start hyperv VM. Running "minikube delete" may fix it: driver start: exit status 1
+I0725 21:06:53.961600   24692 out.go:177] 
+W0725 21:06:53.965601   24692 out.go:239] X Exiting due to GUEST_PROVISION: Failed to start host: driver start: exit status 1
+W0725 21:06:53.965601   24692 out.go:239] * 
+W0725 21:06:53.966571   24692 out.go:239] ╭─────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                             │
+│    * If the above advice does not help, please let us know:                                 │
+│      https://github.com/kubernetes/minikube/issues/new/choose                               │
+│                                                                                             │
+│    * Please run `minikube logs --file=logs.txt` and attach logs.txt to the GitHub issue.    │
+│                                                                                             │
+╰─────────────────────────────────────────────────────────────────────────────────────────────╯
+I0725 21:06:53.971574   24692 out.go:177] 
+
+* 
