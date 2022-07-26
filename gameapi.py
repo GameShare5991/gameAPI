@@ -3,16 +3,11 @@
 
 from flask import Flask, jsonify, request
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore, storage
-import numpy as np
-import cv2
-import ast
-import base64
+from firebase_admin import credentials, firestore
 
 # Use the application default credentials
 cred = credentials.Certificate("serviceAccountKey.json")
-firebase_admin.initialize_app(cred, {'storageBucket' : 'gameshare-722ef.appspot.com'})
+firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
@@ -94,20 +89,20 @@ def deletegame(gameid):
     games = db.collection('games').where("id", "==", gameid).get()
     docid = games[0].id
     db.collection('games').document(docid).delete()
-    return ('deleted game with gameID: '+ gameid)
+    return '',204
 
 #create new game
 @app.route('/games/create', methods=['POST'])
 def updategame():
     request_data = request.get_json()
-    
     title = "None"
     rating = "None"
     descrip = "None"
     released = "None"
     id = "None"
     console = []
-
+    data = {}
+    
     if 'console' in request_data:
         for item in request_data['console']:
             console.append(item)
@@ -129,10 +124,11 @@ def updategame():
 
     data = {'title' : title, 'rating' : rating, 'descrip' : descrip, 'id' : id, 'released' : released, 'console' : console}
     db.collection('games').add(data)
-    return 'added to database'
+    
+    return '',201
 
 #update game by id
-@app.route('/games/update/<gameid>', methods=['POST'])
+@app.route('/games/update/<gameid>', methods=['PATCH'])
 def update(gameid):
     request_data = request.get_json()
     games = db.collection('games').where("id", "==", gameid).get()
@@ -141,35 +137,34 @@ def update(gameid):
     rating = "None"
     descrip = "None"
     released = "None"
-    id = "None"
     console = []
+    data = {}
 
     if 'console' in request_data:
         for item in request_data['console']:
             console.append(item)
-        db.collection('games').document(docid).update({'console' : console})
+        data['console'] = console
 
     if 'title' in request_data:
         title = request_data['title']
-        db.collection('games').document(docid).update({'title' : title})
+        data['title'] = title
 
     if 'rating' in request_data:
         rating = request_data['rating']
-        db.collection('games').document(docid).update({'rating' : rating})
+        data['rating'] = rating
 
     if 'descrip' in request_data:
         descrip = request_data['descrip']
-        db.collection('games').document(docid).update({'descrip' : descrip})
+        data['descrip'] = descrip
 
     if 'released' in request_data:
         released = request_data['released']
-        db.collection('games').document(docid).update({'released' : released})
+        data['released'] = released
 
-    if 'id' in request_data:
-        id = request_data['id']
-        db.collection('games').document(docid).update({'id' : id})
-
-    return ('updated game with gameID')
+    data = {"title" : title, "rating" : rating, "descrip" : descrip, "released" : released, "console" : console}
+    db.collection('games').document(docid).update(data)
+    
+    return '',200
 
 
 
