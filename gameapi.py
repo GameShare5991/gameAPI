@@ -6,6 +6,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 import json
 from flask_cors import CORS
+
 # Use the application default credentials
 cred = credentials.Certificate("serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
@@ -13,6 +14,7 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 app = Flask(__name__)
+CORS(app)
 
 #display all games in db
 @app.route('/games', methods=['GET'])
