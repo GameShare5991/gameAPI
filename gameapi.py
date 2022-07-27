@@ -1,9 +1,10 @@
 #GameShare game API
 #Andrew James
 
-from flask import Flask, jsonify, request
+from flask import Flask, request
 import firebase_admin
 from firebase_admin import credentials, firestore
+import json
 
 # Use the application default credentials
 cred = credentials.Certificate("serviceAccountKey.json")
@@ -19,15 +20,15 @@ def allgames():
     games = db.collection('games').get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)
 
 #get game by ID
 @app.route('/games/<gameid>', methods=['GET'])
 def gamenames(gameid):
     games = db.collection('games').where("id", "==", gameid).get()
-    game = str(games[0].to_dict())
-    return jsonify(game)
+    game = games[0].to_dict()
+    return json.dumps(game)
 
 #display all xbox games
 @app.route('/games/xbox', methods=['GET'])
@@ -35,8 +36,8 @@ def xboxgames():
     games = db.collection('games').where("console", "array_contains", "xbox" ).get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)  
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)  
 
 #display all n64 games
 @app.route('/games/n64', methods=['GET'])
@@ -44,8 +45,8 @@ def n64games():
     games = db.collection('games').where("console", "array_contains", "n64" ).get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)  
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)  
 
 #display all pc games
 @app.route('/games/pc', methods=['GET'])
@@ -53,8 +54,8 @@ def pcgames():
     games = db.collection('games').where("console", "array_contains", "pc" ).get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)  
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)  
 
 #display all ps5 ganes
 @app.route('/games/ps5', methods=['GET'])
@@ -62,8 +63,8 @@ def ps5games():
     games = db.collection('games').where("console", "array_contains", "ps5" ).get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)  
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)  
 
 #display all switch ganes
 @app.route('/games/switch', methods=['GET'])
@@ -71,8 +72,8 @@ def switchgames():
     games = db.collection('games').where("console", "array_contains", "switch" ).get()
     gamelist = []
     for game in games:
-        gamelist.append(str(game.to_dict()))
-    return jsonify(gamelist)  
+        gamelist.append(game.to_dict())
+    return json.dumps(gamelist)  
 
 #displays image
 @app.route('/games/image/<gameid>', methods=['GET'])
