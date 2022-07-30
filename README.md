@@ -16,7 +16,6 @@ docker push jackjackzhou/game-api
 minikube start
 kubectl create -f game-app-deployment.yaml
 minikube tunnel
-<!-- kubectl run game-pod --image=jackjackzhou/game-api --port=6379 -->
 minikube dashboard
 
 # secret
