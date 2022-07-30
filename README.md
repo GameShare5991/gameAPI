@@ -3,13 +3,12 @@ Code for the GameAPI
 gameJSON file is a template to be used when making Create and Update operations. 
 
 # build image: 
-docker build . -t game-api
+docker build . -t jackjackzhou/game-api
 
-run image though docker: 
+# run image though docker: 
 docker run --publish 5000:5000 game-api
 
 # push image:
-docker tag game-api jackjackzhou/game-api
 docker push jackjackzhou/game-api
 
 # kubectl create&run
