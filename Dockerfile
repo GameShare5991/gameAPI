@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3
 
 RUN apt-get clean \
     && apt-get -y update
