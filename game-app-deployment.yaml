@@ -17,10 +17,18 @@ spec:
     spec:
       containers:
         - name: gameapi
-          image: game-api
-          imagePullPolicy: Never
+          image: jackjackzhou/game-api
+          # imagePullPolicy: Never
           ports:
             - containerPort: 5000
+          volumeMounts:
+            - name: game-app-key
+              mountPath: “/app”
+              readOnly: true
+      volumes:
+        - name: game-app-key
+          secret:
+            secretName: game-app-key
 
 ---
 apiVersion: v1
@@ -30,7 +38,6 @@ metadata:
 spec:
   ports:
   - port: 5000
-    protocol: TCP
     targetPort: 5000
   selector:
     app: gameapi

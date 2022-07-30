@@ -11,7 +11,7 @@ RUN apt-get -y install \
 WORKDIR /app
 
 COPY requirements.txt /app/requirements.txt
-COPY serviceAccountKey.json /app/serviceAccountKey.json
+# COPY serviceAccountKey.json /app/serviceAccountKey.json # If you want test in docker you can add this but do not share the image
 RUN pip install -r requirements.txt --src /usr/local/src
 
 COPY . .
