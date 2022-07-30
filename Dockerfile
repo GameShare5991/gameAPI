@@ -1,13 +1,20 @@
 FROM python:3
+
+RUN apt-get clean \
+    && apt-get -y update
+
+RUN apt-get -y install \
+    nginx \
+    python3-dev \
+    build-essential
+
 WORKDIR /app
-ADD gameapi.py .
-ADD gameJSON .
-ADD serviceAccountKey.json .
-RUN python -m pip install --upgrade pip
-RUN pip install wheel
-RUN pip install flask
-RUN pip install firebase
-RUN pip install firebase_admin
-RUN pip install flask_cors
+
+COPY requirements.txt /app/requirements.txt
+# COPY serviceAccountKey.json /app/serviceAccountKey.json # If you want test in docker you can add this but do not share the image
+RUN pip install -r requirements.txt --src /usr/local/src
+
+COPY . .
+
 EXPOSE 5000
-CMD ["python", "gameapi.py"]
+CMD [ "python", "gameapi.py" ]

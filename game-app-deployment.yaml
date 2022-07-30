@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameapi-deployment
+  labels:
+    app: gameapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gameapi
+  template:
+    metadata:
+      labels:
+        app: gameapi
+    spec:
+      containers:
+        - name: gameapi
+          image: jackjackzhou/game-api
+          # imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: game-app-key
+              mountPath: “/app”
+              readOnly: true
+      volumes:
+        - name: game-app-key
+          secret:
+            secretName: game-app-key
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: game-service
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: gameapi
+  type: LoadBalancer
