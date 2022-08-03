@@ -102,9 +102,7 @@ def updategame():
     rating = "None"
     descrip = "None"
     released = "None"
-    console = []
-    data = {}
-    
+    console = []    
     if 'console' in request_data:
         for item in request_data['console']:
             console.append(item)
