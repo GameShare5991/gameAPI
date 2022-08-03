@@ -102,7 +102,6 @@ def updategame():
     rating = "None"
     descrip = "None"
     released = "None"
-    id = "None"
     console = []
     data = {}
     
@@ -121,12 +120,20 @@ def updategame():
 
     if 'released' in request_data:
         released = request_data['released']
+   
+    game_data = {
+        'title' : title, 
+        'rating' : rating, 
+        'descrip' : descrip, 
+        'released' : released, 
+        'console' : console,
+        'id' : "null"
+    } 
 
-    if 'id' in request_data:
-        id = request_data['id']
-
-    data = {'title' : title, 'rating' : rating, 'descrip' : descrip, 'id' : id, 'released' : released, 'console' : console}
-    db.collection('games').add(data)
+    _, doc = db.collection('games').add(game_data)  # initial data
+    db.collection('games').document(doc.id).update({  # document-related data
+        "id": doc.id
+    })
     
     return '',201
 
